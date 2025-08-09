@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-poppins: 'Poppins', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter), sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #F5C518;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFDF6B;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: #F5C518;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background: #F5C518;
+    color: #000000;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-glitter-gold to-glitter-gold-light text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-glitter-gold/25 focus:outline-none focus:ring-2 focus:ring-glitter-gold focus:ring-offset-2 focus:ring-offset-black;
+  }
+
+  .btn-secondary {
+    @apply bg-card-dark border border-slight-blue text-slight-blue font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-slight-blue hover:text-black focus:outline-none focus:ring-2 focus:ring-slight-blue focus:ring-offset-2 focus:ring-offset-black;
+  }
+
+  .btn-outline {
+    @apply border-2 border-glitter-gold text-glitter-gold font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:bg-glitter-gold hover:text-black focus:outline-none focus:ring-2 focus:ring-glitter-gold focus:ring-offset-2 focus:ring-offset-black;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-card-dark border border-gray-800 rounded-xl p-6 transition-all duration-300 hover:border-glitter-gold/50 hover:shadow-lg hover:shadow-glitter-gold/10;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-glitter-gold/20;
+  }
+
+  /* Text styles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-glitter-gold to-glitter-gold-light bg-clip-text text-transparent;
+  }
+
+  .text-glow {
+    @apply text-glitter-gold drop-shadow-lg drop-shadow-glitter-gold/50;
+  }
+
+  /* Animation classes */
+  .animate-shimmer {
+    background: linear-gradient(90deg, #F5C518 0%, #FFDF6B 50%, #F5C518 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(245, 197, 24, 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+  }
+
+  /* Particle background */
+  .particle-bg {
+    background: radial-gradient(circle at 50% 50%, rgba(245, 197, 24, 0.1) 0%, transparent 70%);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 197, 24, 0.2);
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply w-6 h-6 border-2 border-glitter-gold border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply bg-card-dark border border-gray-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-glitter-gold focus:border-transparent transition-all duration-300;
+  }
+
+  .form-textarea {
+    @apply bg-card-dark border border-gray-700 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-glitter-gold focus:border-transparent transition-all duration-300 resize-none;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-gray-300 hover:text-glitter-gold transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-glitter-gold to-glitter-gold-light transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Social media icons */
+  .social-icon {
+    @apply w-8 h-8 text-gray-400 hover:text-glitter-gold transition-all duration-300 transform hover:scale-110;
+  }
+
+  /* YouTube embed responsive */
+  .youtube-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  }
+
+  .youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  /* Lottie container */
+  .lottie-container {
+    @apply w-full h-full flex items-center justify-center;
+  }
+
+  /* GSAP animations */
+  .gsap-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .gsap-scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .gsap-slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  .gsap-slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  /* Locomotive scroll */
+  .locomotive-scroll {
+    overflow: hidden;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      @apply px-4 py-2 text-sm;
+    }
+
+    .card {
+      @apply p-4;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-primary {
+      @apply border-2 border-glitter-gold;
+    }
+
+    .card {
+      @apply border-2 border-gray-600;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white !important;
+      color: black !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Aspect ratios */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Grid utilities */
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
