@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useAnimation } from './AnimationProvider'
 
 const nav = [
   { href: '/', label: 'Home' },
@@ -14,7 +13,6 @@ const nav = [
 
 export default function Header() {
   const pathname = usePathname()
-  const { reducedMotion, toggleReducedMotion } = useAnimation()
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-black/50 border-b border-gray-800">
@@ -33,17 +31,15 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <button
-            onClick={toggleReducedMotion}
-            className="text-xs px-3 py-1 rounded border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500"
-            aria-pressed={reducedMotion}
-            title="Toggle reduced motion"
+            className="md:hidden text-gray-300"
+            onClick={() => {
+              const el = document.getElementById('mobile-menu')
+              if (el) el.classList.toggle('hidden')
+            }}
+            aria-label="Open menu"
           >
-            {reducedMotion ? 'Motion: Off' : 'Motion: On'}
+            ☰
           </button>
-          <button className="md:hidden text-gray-300" onClick={() => {
-            const el = document.getElementById('mobile-menu')
-            if (el) el.classList.toggle('hidden')
-          }} aria-label="Open menu">☰</button>
         </div>
       </div>
       {/* Mobile menu */}
