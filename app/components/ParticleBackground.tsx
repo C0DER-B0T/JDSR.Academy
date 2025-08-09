@@ -29,13 +29,15 @@ export function ParticleBackground() {
 
       gsap.set(particle, { opacity: 0, scale: 0 })
       gsap.to(particle, {
-        opacity: [0, 1, 0],
-        scale: [0, 1, 0],
+        keyframes: [
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1, ease: 'power2.out' },
+          { opacity: 0, scale: 0, ease: 'power2.in' },
+        ],
         y: -100 - Math.random() * 200,
         x: (Math.random() - 0.5) * 100,
         duration,
         delay,
-        ease: 'power2.out',
         repeat: -1,
         repeatDelay: Math.random() * 2,
       })

@@ -110,12 +110,15 @@ export default function RootLayout({
                 "@type": "Person",
                 "name": "Monika Singh",
                 "jobTitle": "Director",
-                "worksFor": { "@type": "Organization", "name": "JDSR Academy" }
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "JDSR Academy"
+                }
               },
               "contactPoint": [
                 {
                   "@type": "ContactPoint",
-                  "telephone": "+91 9760380843",
+                  "telephone": "+91-XXXXXXXXXX",
                   "contactType": "customer service",
                   "areaServed": ["IN"],
                   "availableLanguage": ["English", "Hindi"]
@@ -126,8 +129,17 @@ export default function RootLayout({
                 "https://t.me/jdsracademy",
                 "https://youtube.com/@jdsr_academy"
               ],
-              "address": { "@type": "PostalAddress", "addressLocality": "TODO: Add City", "addressRegion": "Uttar Pradesh", "addressCountry": "IN" },
-              "geo": { "@type": "GeoCoordinates", "latitude": "TODO: Add Latitude", "longitude": "TODO: Add Longitude" }
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "TODO: Add City",
+                "addressRegion": "Uttar Pradesh",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "TODO: Add Latitude",
+                "longitude": "TODO: Add Longitude"
+              }
             })
           }}
         />
