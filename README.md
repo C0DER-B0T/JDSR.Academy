@@ -1,1 +1,0 @@
-# JDSR.Academy
